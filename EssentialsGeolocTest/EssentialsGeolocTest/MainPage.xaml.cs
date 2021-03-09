@@ -33,16 +33,20 @@ namespace EssentialsGeolocTest
 
         protected override async void OnAppearing()
         {
-
-            Location currentLocation;
-            
             if ((currentLocation = await LocationService.GetCurrentLocation()) != null)
             {
                 Debug.WriteLine($"OnAppearing currentLocation: {currentLocation?.ToString()}");
             }
 
             base.OnAppearing();
+        }
 
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            if ((currentLocation = await LocationService.GetCurrentLocation()) != null)
+            {
+                Debug.WriteLine($"Button_Clicked currentLocation: {currentLocation?.ToString()}");
+            }
         }
     }
 }
